@@ -1,7 +1,86 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {loginSchema} from '../validations/loginSchema'
 
 const UserLogin = () => {
-  return <div>UserLogin</div>;
+  //hooks
+  const navigate = useNavigate();
+
+  //navigate
+  const navigateToReset = () => {
+    navigate('/ResetPassword')
+  }
+
+  const navigateToSignUp = () => {
+    navigate('/signup')
+  }
+
+  //validar com zod
+  const {register, handleSubmit, formState:{errors}} = useForm({
+    resolver: zodResolver(loginSchema)
+  })
+
+  const onSubmit = (data)=> {
+    console.log(`Login válido, ${data}`)
+  }
+
+  return (
+    <div className="flex justify-center items-center w-full h-screen blue-degr-bg relative">
+      <div className="absolute top-5 left-7">
+        <p className="text-yellow-400 text-3xl font-logo">To do list</p>
+      </div>
+
+      <div className="flex flex-col w-full max-w-md lvory-bg border-2 h-auto p-4 rounded-lg">
+        <div className="flex justify-center">
+          <h4 className="font-bold text-2xl dark-blue-txt mb-5">Login</h4>
+        </div>
+
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="flex flex-col">
+            <label className="font-semibold dark-blue-txt mb-1" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200"
+              type="email"
+              {...register('email')}
+              id="email"
+            />
+            {errors.email && <p style={{color: 'red'}}>{errors.email.message}</p>}
+          </div>
+          <div className="flex flex-col mt-5">
+            <label className="font-semibold dark-blue-txt mb-1" htmlFor="senha">
+              Senha
+            </label>
+            <input
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200"
+              type="password"
+              {...register('password')}
+              id="password"
+            />
+            {errors.password && <p style={{color: 'red'}}>{errors.password.message}</p>}
+          </div>
+
+          <div className="flex">
+            <p onClick={navigateToReset} className="hover: cursor-pointer dark-blue-txt ml-auto">Esqueci minha senha</p>
+          </div>
+          <div className="flex flex-col w-full mt-8 gap-2">
+            <button className="dark-blue-bg p-2 rounded-lg text-white hover:bg-[#0a161f]">
+              Entrar
+            </button>
+            <button type="button" onClick={(e) => {
+              e.preventDefault();
+              navigateToSignUp();
+            }} className="ucla-blue-bg p-2 rounded-lg text-white hover:bg-[#3f5170]">
+              Cadastrar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 };
 
 export default UserLogin;

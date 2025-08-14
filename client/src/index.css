@@ -1,7 +1,46 @@
 @import './styles/variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.font-logo{
+    font-family: "Gloria Hallelujah", cursive;
+}
+
+/* Backgrounds */
+.dark-blue-bg{
+  background-color: var(--dark-blue);
+}
+
+.lvory-bg{
+  background-color: var(--lvory);
+}
+
+.ucla-blue-bg{
+  background-color: var(--ucla-blue);
+}
+
+.blue-degr-bg{
+  background: linear-gradient(to bottom, var(--dark-blue), var(--ucla-blue),  var(--dark-real));
+}
+
+.bg-dark-real{
+  background: var(--dark-real);
+}
+
+/* texts */
+.dark-blue-txt{
+  color: var(--dark-blue);
+}
+
+.lvory-txt{
+  color: var(--lvory);
+}
+
+.ucla-blue-txt{
+  color: var(--ucla-blue);
 }

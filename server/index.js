@@ -4,7 +4,8 @@ const cors = require('cors')
 const dotenv = require('dotenv')
 const connectToDb = require('./src/database/connect')
 
-const task = require('./routes/task')
+const user = require('./src/routes/user')
+const task = require('./src/routes/task')
 
 dotenv.config()
 connectToDb()
@@ -15,7 +16,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 //pre-fixo das routes
+app.use('/user', user)
 app.use('/task', task)
+
 
 //server
 const PORT = 8090
