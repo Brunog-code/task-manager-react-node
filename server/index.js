@@ -27,7 +27,7 @@ app.use("/auth", auth);
 app.use("/password", password);
 
 //server
-const PORT = 8090;
+const PORT = process.env.PORT || 5000; // 5000 só se não existir process.env.PORT
 app.listen(PORT, () =>
   console.log(`Conectado com sucesso ao servidor na porta ${PORT}`)
 );
