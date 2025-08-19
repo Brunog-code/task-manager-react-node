@@ -16,7 +16,7 @@ const Home = () => {
   const fetchTasks = async () => {
     try{
       const token = localStorage.getItem("token"); // Obtém o token do localStorage
-      const response = await axios.get('http://localhost:8090/tasks', {
+      const response = await axios.get('https://task-manager-react-node.onrender.com/tasks', {
         headers: {
           'Authorization': `Bearer ${token}` // Adiciona o token de autenticação
         }

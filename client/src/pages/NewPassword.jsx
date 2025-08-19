@@ -19,7 +19,7 @@ const { token } = useParams();
 
 const onSubmit = async (data) => {
     try{
-        const response = await axios.post(`http://localhost:8090/password/reset/${token}`, {newPassword: data.password})
+        const response = await axios.post(`https://task-manager-react-node.onrender.com/password/reset/${token}`, {newPassword: data.password})
 
         if(response.data.success) {
             toast.success(response.data.message);

@@ -29,7 +29,7 @@ const ResetPassword = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8090/password/forgot`,
+        `https://task-manager-react-node.onrender.com/password/forgot`,
         email
       );
 

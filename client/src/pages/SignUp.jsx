@@ -32,7 +32,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8090/user/cadUser",
+        "https://task-manager-react-node.onrender.com/user/cadUser",
         data
       );
 

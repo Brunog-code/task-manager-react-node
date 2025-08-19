@@ -23,7 +23,7 @@ const handleAddTask = async (e) => {
 
   //requisição par o backend (passando a tarefa)
   try{
-    const response = await axios.post('http://localhost:8090/tasks', 
+    const response = await axios.post('https://task-manager-react-node.onrender.com/tasks', 
       {title: task},
         {
           headers: {

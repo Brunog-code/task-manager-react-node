@@ -70,7 +70,7 @@ const Task = ({task, setTasks}) => {
 
     const token = localStorage.getItem('token'); // Obtém o token do localStorage
     try {
-      const response = await axios.patch(`http://localhost:8090/tasks/${_id}`, 
+      const response = await axios.patch(`https://task-manager-react-node.onrender.com/tasks/${_id}`, 
         {title: editedTitle},
         {headers: {
           'Authorization': `Bearer ${token}` // Adiciona o token de autenticação
