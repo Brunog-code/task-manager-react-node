@@ -3,7 +3,7 @@ const crypto = require("crypto");
 const sendEmail = require('../services/emailService');
 
 //1-funcao para solicitar redefinicao de senha
-const forgotPassword = async(req, res, next) => {
+const forgotPassword = async(req, res) => {
 
     //pegar o email do usuario quando preencher o input
     try{
@@ -21,8 +21,8 @@ const forgotPassword = async(req, res, next) => {
          const resetTokenHash = crypto.createHash("sha256").update(resetToken).digest("hex");
 
          //atribuir o token de expiração ao usuário
-         user.resetToken = resetTokenHash;
-         user.resetTokenExpiration = Date.now() + 3600000; // 1 hora
+         user.resetPasswordToken = resetTokenHash;
+         user.resetPasswordExpires = Date.now() + 3600000; // 1 hora
          await user.save();
 
          //montar link de redefinição de senha
@@ -36,7 +36,8 @@ const forgotPassword = async(req, res, next) => {
             `<p>Você solicitou a redefinição de senha. Clique no link abaixo para redefinir sua senha:</p>
             <a href="${resetLink}">${resetLink}</a>
             <p>Esse link expira em 1h.</p>
-            <p>Se você não solicitou essa redefinição, ignore este email.</p>`
+            <p>Se você não solicitou essa redefinição, ignore este email.</p>
+            <img src="https://i.imgur.com/rnHrSYa.png" alt="Logo" style="width:150px; margin-top:10px;" />`
         );
 
          //resposta de sucesso

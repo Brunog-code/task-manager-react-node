@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import UserLogin from "./pages/UserLogin";
 import SignUp from "./pages/SignUp";
 import ResetPassword from "./pages/ResetPassword";
+import NewPassword from "./pages/NewPassword";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           } 
         />
         <Route path="/resetpassword" element={<ResetPassword />} />
+         <Route path="/reset-password/:token" element={<NewPassword />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
       <ToastContainer/>

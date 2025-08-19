@@ -3,9 +3,10 @@ const User = require('../models/User.model');
 const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 
-const resetPassword = async (req, res, next) => {
+const resetPassword = async (req, res) => {
     try{
-        const {token, newPassword } = req.body;
+        const {token} = req.params; // pegar o token da URL
+        const { newPassword } = req.body;
 
         if(!token || !newPassword) {
             return res.status(400).json({success: false, message: 'Token e nova senha são obrigatórios'});
@@ -16,21 +17,20 @@ const resetPassword = async (req, res, next) => {
 
         // procurar usuário com token válido e não expirado
         const user = await User.findOne({
-            resetToken: resetTokenHash,
-            resetTokenExpiration: { $gt: Date.now() } // verifica se o token não expirou
+            resetPasswordToken: resetTokenHash,
+            resetPasswordExpires: { $gt: Date.now() } // verifica se o token não expirou
         })
 
         if(!user) {
             return res.status(400).json({success: false, message: 'Token inválido ou expirado'});
         }
 
-        // criptografar nova senha com bcrypt
-        const hashedPassword = await bcrypt.hash(newPassword, 10);
-        user.password = hashedPassword;
+        //atribuir nova senha ao usuário
+        user.password = newPassword;
 
         // remover token e expiração
-        user.resetToken = undefined;
-        user.resetTokenExpiration = undefined;
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpires = undefined;
 
         await user.save();
 
