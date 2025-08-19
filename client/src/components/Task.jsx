@@ -18,7 +18,7 @@ const Task = ({task, setTasks}) => {
   const handleDeleteTask = async() => {
     const token = localStorage.getItem('token'); // Obtém o token do localStorage
     try{
-      const deleteTask = await axios.delete(`http://localhost:8090/tasks/${_id}`, {
+      const deleteTask = await axios.delete(`https://task-manager-react-node.onrender.com/tasks/${_id}`, {
         headers:{
           'Authorization': `Bearer ${token}` // Adiciona o token de autenticação
         }
@@ -40,7 +40,7 @@ const Task = ({task, setTasks}) => {
   const handleToogleTask = async() => {
     const token = localStorage.getItem('token'); // Obtém o token do localStorage
     try{
-      const updatedTask = await axios.patch(`http://localhost:8090/tasks/${_id}`, {
+      const updatedTask = await axios.patch(`https://task-manager-react-node.onrender.com/tasks/${_id}`, {
         completed: !completed, 
         finalizedAt: !completed ? new Date() : null //
       }, {
