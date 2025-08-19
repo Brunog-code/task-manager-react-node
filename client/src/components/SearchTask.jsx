@@ -1,20 +1,17 @@
 import React from 'react'
 
-const SearchTask = () => {
+const SearchTask = ({ filter, setFilter}) => {
   return (
     <div className='mb-5 bg-blue-500 p-2 rounded-lg mt-3'>
         <div>
             <h3 className=' mb-2 text-white text-xl'>Filtrar</h3>
         </div>
         <div className='flex gap-5'>
-            <label htmlFor="finalizadas" className="text-white">
-              <input className="mr-1 accent-[#0e1f2f]" type="checkbox" id="finalizadas" name="finalizadas" />
-              Finalizadas
-            </label>
-            <label htmlFor="Abertas" className="text-white">
-              <input className="mr-1 accent-[#0e1f2f]" type="checkbox" id="Abertas" name="Abertas" />
-              Abertas
-            </label>
+              <select className='p-1 rounded-lg bg-white text-black' value={filter} onChange={(e) => setFilter(e.target.value)}>
+                <option value="all">Todas</option>
+                <option value="completed">Finalizadas</option>
+                <option value="open">Abertas</option>
+            </select>
         </div>
     </div>
   )

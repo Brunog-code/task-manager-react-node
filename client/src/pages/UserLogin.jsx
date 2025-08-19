@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {loginSchema} from '../validations/loginSchema'
+import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const UserLogin = () => {
   //hooks
@@ -22,8 +25,21 @@ const UserLogin = () => {
     resolver: zodResolver(loginSchema)
   })
 
-  const onSubmit = (data)=> {
-    console.log(`Login válido, ${data}`)
+  //validando token e fazendo login
+  const onSubmit = async(data)=> {
+    try{
+      const response = await axios.post('http://localhost:8090/auth/login', data)
+
+      if(response.data.token){
+        console.log(`Token: `, response.data.token);
+        localStorage.setItem('token', response.data.token);
+        navigate('/home');
+      }
+    }catch(error){
+      console.error("Erro ao fazer login:", error);
+      toast.error("Erro ao fazer login. Verifique suas credenciais e tente novamente.");
+      return;
+    }
   }
 
   return (
