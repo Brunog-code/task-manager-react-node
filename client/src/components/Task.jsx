@@ -89,7 +89,7 @@ const Task = ({task, setTasks}) => {
    }
 
   return (
-    <div className='flex-1 w-full flex justify-between bg-[#1E1E1E] p-2 rounded-lg text-white mb-2'>
+    <div className='flex-1 w-full flex justify-between bg-[#1E1E1E] p-2 rounded-lg text-white mb-2 hover:bg-[#2A2A2A] transition-colors duration-200'>
 
         <div className='flex gap-2 items-center'>
 
