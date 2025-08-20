@@ -113,7 +113,6 @@ const Task = ({task, setTasks}) => {
             )}>{title}</p>
             )}
               <p className='text-sm'>
-                <div className='flex flex-col md:flex-row'>
                   <span className='text-green-500'>Criada em:</span> {date}
                   {task.completed && task.finalizedAt && (
                     <>
@@ -121,7 +120,6 @@ const Task = ({task, setTasks}) => {
                     <span className='text-orange-500'>Finalizada em: </span>{new Date(finalizedAt).toLocaleDateString()}
                     </>
                   )}
-                </div>
               </p>
             
           </div>
