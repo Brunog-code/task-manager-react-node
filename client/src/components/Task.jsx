@@ -92,6 +92,7 @@ const Task = ({task, setTasks}) => {
     <div className='flex-1 w-full flex justify-between bg-[#1E1E1E] p-2 rounded-lg text-white mb-2'>
 
         <div className='flex gap-2 items-center'>
+
           <button onClick={handleToogleTask}  className={clsx(
             'rounded-lg p-1',
             {'bg-orange-500 hover:bg-orange-600': task.completed, 'bg-green-500 hover:bg-green-600': !task.completed})}><FiCheck size={17}/></button>
@@ -111,16 +112,19 @@ const Task = ({task, setTasks}) => {
               {'line-through text-gray-400': task.completed, 'text-white': !task.completed}
             )}>{title}</p>
             )}
-            <p className='text-sm'>
-              <span className='text-green-500'>Criada em:</span> {date} 
-              {task.completed && task.finalizedAt && (
-                <>
-                {' | '}
-                <span className='text-orange-500'>Finalizada em: </span>{new Date(finalizedAt).toLocaleDateString()}
-                </>
-              )}
-            </p>
+            <div className='flex flex-col md:flex-row'>
+              <p className='text-sm'>
+                <span className='text-green-500'>Criada em:</span> {date}
+                {task.completed && task.finalizedAt && (
+                  <>
+                  {' | '}
+                  <span className='text-orange-500'>Finalizada em: </span>{new Date(finalizedAt).toLocaleDateString()}
+                  </>
+                )}
+              </p>
+            </div>
           </div>
+
         </div>
 
         <div className='flex gap-2 items-center'>
