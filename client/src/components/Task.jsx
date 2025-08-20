@@ -105,6 +105,7 @@ const Task = ({task, setTasks}) => {
                 onKeyDown={(e) => {e.key === 'Enter' && handleUpdateTask()}} //salva ao pressionar Enter
                 className='p-1 rounded-lg bg-white text-black w-[170px] md:w-[240px]'
                 autoFocus
+                 maxLength={64}
               />
             ) : (
             <p className={clsx(

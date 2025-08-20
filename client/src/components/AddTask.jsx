@@ -52,6 +52,7 @@ const handleAddTask = async (e) => {
             <input className='flex-1 p-1 mr-4 border-4 border-gray-50 rounded-md outline-none focus:border-[#3f5170]' 
             type="text" 
             placeholder='Digite a tarefa'
+            maxLength={64}
             value={task}
             onChange={(e) => setTask(e.target.value)}
             ref={inputRef} // Referência para o input
