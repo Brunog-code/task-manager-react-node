@@ -91,7 +91,7 @@ const Task = ({task, setTasks}) => {
   return (
     <div className='flex-1 w-full flex justify-between bg-[#1E1E1E] p-2 rounded-lg text-white mb-2'>
 
-        <div className='flex flex-wrap gap-2 items-center'>
+        <div className='flex break-words gap-2 items-center'>
 
           <button onClick={handleToogleTask}  className={clsx(
             'rounded-lg p-1',
