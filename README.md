@@ -41,8 +41,7 @@ Aqui está uma prévia da home:
 - CRUD completo de tarefas:
   - Criar tarefas  
   - Listar tarefas do usuário logado  
-  - Atualizar título e marcar como concluída
-  - Deletar tarefas  
+  - Atualizar tarefa, marcar como concluída e deletar.
 - Ordenação de tarefas por data de criação  
 - Layout responsivo para desktop e mobile  
 - Feedback instantâneo de ações via React-Toastify  
