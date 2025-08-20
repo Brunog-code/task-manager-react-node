@@ -103,7 +103,7 @@ const Task = ({task, setTasks}) => {
                 onChange={(e) => setEditedTitle(e.target.value)}
                 onBlur={handleUpdateTask} //salva ao sair do input
                 onKeyDown={(e) => {e.key === 'Enter' && handleUpdateTask()}} //salva ao pressionar Enter
-                className='p-1 rounded-lg bg-white text-black w-32 md:w-64'
+                className='p-1 rounded-lg bg-white text-black w-64'
                 autoFocus
               />
             ) : (
