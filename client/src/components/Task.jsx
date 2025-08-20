@@ -112,17 +112,18 @@ const Task = ({task, setTasks}) => {
               {'line-through text-gray-400': task.completed, 'text-white': !task.completed}
             )}>{title}</p>
             )}
-            <div className='flex flex-col md:flex-row'>
               <p className='text-sm'>
-                <span className='text-green-500'>Criada em:</span> {date}
-                {task.completed && task.finalizedAt && (
-                  <>
-                  {' | '}
-                  <span className='text-orange-500'>Finalizada em: </span>{new Date(finalizedAt).toLocaleDateString()}
-                  </>
-                )}
+                <div className='flex flex-col md:flex-row'>
+                  <span className='text-green-500'>Criada em:</span> {date}
+                  {task.completed && task.finalizedAt && (
+                    <>
+                    {' | '}
+                    <span className='text-orange-500'>Finalizada em: </span>{new Date(finalizedAt).toLocaleDateString()}
+                    </>
+                  )}
+                </div>
               </p>
-            </div>
+            
           </div>
 
         </div>
