@@ -41,7 +41,7 @@ Aqui está uma prévia da home:
 - CRUD completo de tarefas:
   - Criar tarefas  
   - Listar tarefas do usuário logado  
-  - Atualizar título, marcar como concluída ou finalizar  
+  - Atualizar título e marcar como concluída
   - Deletar tarefas  
 - Ordenação de tarefas por data de criação  
 - Layout responsivo para desktop e mobile  
