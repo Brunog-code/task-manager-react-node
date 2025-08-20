@@ -44,11 +44,12 @@ const UserLogin = () => {
 
   return (
     <div className="flex justify-center items-center w-full h-screen blue-degr-bg relative">
+      
       <div className="absolute top-5 left-7">
         <p className="text-yellow-400 text-3xl font-logo">To do list</p>
       </div>
 
-      <div className="flex flex-col w-full max-w-md lvory-bg border-2 h-auto p-4 rounded-lg">
+      <div className="flex flex-col w-[95%] max-w-md lvory-bg border-2 h-auto p-4 rounded-lg">
         <div className="flex justify-center">
           <h4 className="font-bold text-2xl dark-blue-txt mb-5">Login</h4>
         </div>
