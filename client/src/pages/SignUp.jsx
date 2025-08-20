@@ -91,7 +91,7 @@ const SignUp = () => {
 
           <div className="flex flex-col">
             <label
-              className=" mt-2 font-semibold dark-blue-txt mb-1"
+              className=" mt-3 font-semibold dark-blue-txt mb-1"
               htmlFor="email"
             >
               Email
@@ -110,7 +110,7 @@ const SignUp = () => {
 
           <div className="flex flex-col">
             <label
-              className=" mt-2 font-semibold dark-blue-txt mb-1"
+              className=" mt-3 font-semibold dark-blue-txt mb-1"
               htmlFor="password"
             >
               Senha
@@ -140,7 +140,7 @@ const SignUp = () => {
           </div>
           <div className="flex flex-col">
             <label
-              className=" mt-2 font-semibold dark-blue-txt mb-1"
+              className=" mt-3 font-semibold dark-blue-txt mb-1"
               htmlFor="confirm-password"
             >
               Confirme sua senha
