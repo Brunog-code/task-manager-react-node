@@ -57,7 +57,7 @@ const SignUp = () => {
         <p className="text-yellow-400 text-3xl font-logo">To do list</p>
       </div>
 
-      <div className="flex flex-col w-[95%] max-w-md lvory-bg border-2 h-auto p-4 rounded-lg">
+      <div className="flex flex-col w-[95%] max-w-md bg-white border-2 h-auto p-4 rounded-lg">
         <div>
           <button
             onClick={backHome}

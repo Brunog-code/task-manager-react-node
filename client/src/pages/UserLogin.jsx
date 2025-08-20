@@ -49,13 +49,15 @@ const UserLogin = () => {
         <p className="text-yellow-400 text-3xl font-logo">To do list</p>
       </div>
 
-      <div className="flex flex-col w-[95%] max-w-md lvory-bg border-2 h-auto p-4 rounded-lg">
+      <div className="flex flex-col w-[95%] max-w-md bg-white border-2 h-auto p-4 rounded-lg">
         <div className="flex justify-center">
           <h4 className="font-bold text-2xl dark-blue-txt mb-5">Login</h4>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
+          
           <div className="flex flex-col">
+            
             <label className="font-semibold dark-blue-txt mb-1" htmlFor="email">
               Email
             </label>
@@ -67,6 +69,7 @@ const UserLogin = () => {
             />
             {errors.email && <p style={{color: 'red'}}>{errors.email.message}</p>}
           </div>
+
           <div className="flex flex-col mt-5">
             <label className="font-semibold dark-blue-txt mb-1" htmlFor="senha">
               Senha

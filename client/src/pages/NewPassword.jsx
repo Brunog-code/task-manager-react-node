@@ -39,7 +39,7 @@ const onSubmit = async (data) => {
         <p className="text-yellow-400 text-3xl font-logo">To do list</p>
       </div>
 
-      <div className="flex flex-col w-full max-w-md lvory-bg border-2 h-auto p-4 rounded-lg">
+      <div className="flex flex-col w-full max-w-md bg-white border-2 h-auto p-4 rounded-lg">
         <div className="flex justify-center">
           <h4 className="font-bold text-2xl dark-blue-txt mb-5">
             Digite a nova senha
