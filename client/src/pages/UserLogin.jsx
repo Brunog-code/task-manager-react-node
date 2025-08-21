@@ -58,27 +58,29 @@ const UserLogin = () => {
           
           <div className="flex flex-col">
             
-            <label className="font-semibold dark-blue-txt mb-1" htmlFor="email">
+            {/* <label className="font-semibold dark-blue-txt mb-1" htmlFor="email">
               Email
-            </label>
+            </label> */}
             <input
-              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200"
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-2"
               type="email"
               {...register('email')}
               id="email"
+              placeholder="Digite seu email"
             />
             {errors.email && <p style={{color: 'red'}}>{errors.email.message}</p>}
           </div>
 
           <div className="flex flex-col mt-5">
-            <label className="font-semibold dark-blue-txt mb-1" htmlFor="senha">
+            {/* <label className="font-semibold dark-blue-txt mb-1" htmlFor="senha">
               Senha
-            </label>
+            </label> */}
             <input
-              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200"
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200  p-2"
               type="password"
               {...register('password')}
               id="password"
+              placeholder="Digite sua senha"
             />
             {errors.password && <p style={{color: 'red'}}>{errors.password.message}</p>}
           </div>
@@ -93,7 +95,7 @@ const UserLogin = () => {
             <button type="button" onClick={(e) => {
               e.preventDefault();
               navigateToSignUp();
-            }} className="ucla-blue-bg p-2 rounded-lg text-white hover:bg-[#3f5170]">
+            }} className="border-2 border-[#3f5170] p-2 rounded-lg dark-blue-txt hover:bg-[#3f5170] hover:text-white ">
               Cadastrar
             </button>
           </div>

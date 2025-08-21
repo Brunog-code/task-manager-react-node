@@ -48,11 +48,8 @@ const onSubmit = async (data) => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
-            <label className="font-semibold dark-blue-txt mb-1" htmlFor="password">
-              Senha
-            </label>
             <input
-              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200"
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1"
               placeholder="Digite sua senha"
               type="password"
               id="password"

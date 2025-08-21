@@ -53,6 +53,7 @@ const SignUp = () => {
 
   return (
     <div className="flex justify-center items-center w-full h-screen blue-degr-bg relative">
+      
       <div className="absolute top-5 left-7">
         <p className="text-yellow-400 text-3xl font-logo">To do list</p>
       </div>
@@ -72,14 +73,12 @@ const SignUp = () => {
           </h4>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
-            <label className="font-semibold dark-blue-txt mb-1" htmlFor="name">
-              Nome
-            </label>
+
             <input
               {...register("name")}
-              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200"
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200  p-1"
               placeholder="Digite seu nome"
               type="text"
               id="name"
@@ -90,15 +89,10 @@ const SignUp = () => {
           </div>
 
           <div className="flex flex-col">
-            <label
-              className=" mt-3 font-semibold dark-blue-txt mb-1"
-              htmlFor="email"
-            >
-              Email
-            </label>
+
             <input
               {...register("email")}
-              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200"
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200  p-1"
               placeholder="Digite seu email"
               type="email"
               id="email"
@@ -109,16 +103,11 @@ const SignUp = () => {
           </div>
 
           <div className="flex flex-col">
-            <label
-              className=" mt-3 font-semibold dark-blue-txt mb-1"
-              htmlFor="password"
-            >
-              Senha
-            </label>
+        
             <div className="relative w-full">
               <input
                 {...register("password")}
-                className="w-full rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200"
+                className="w-full rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200  p-1"
                 placeholder="Digite sua senha"
                 type={showPassword ? "text" : "password"}
                 id="password"
@@ -128,7 +117,7 @@ const SignUp = () => {
               )}
               <span
                 onClick={tooglePassword}
-                className="cursor-pointer absolute right-3 top-1"
+                className="cursor-pointer absolute right-3 top-2"
               >
                 {showPassword ? (
                   <AiOutlineEye size={20} />
@@ -139,16 +128,11 @@ const SignUp = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <label
-              className=" mt-3 font-semibold dark-blue-txt mb-1"
-              htmlFor="confirm-password"
-            >
-              Confirme sua senha
-            </label>
+        
             <div className="relative w-full">
               <input
                 {...register("confirmPassword")}
-                className="w-full rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200"
+                className="w-full rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1"
                 placeholder="Digite sua senha"
                 type={showConfirmPassword ? "text" : "password"}
                 id="confirm-password"
@@ -158,7 +142,7 @@ const SignUp = () => {
               )}
               <span
                 onClick={toogleConfirmPassword}
-                className="cursor-pointer absolute right-3 top-1"
+                className="cursor-pointer absolute right-3 top-2"
               >
                 {showConfirmPassword ? (
                   <AiOutlineEye size={20} />
