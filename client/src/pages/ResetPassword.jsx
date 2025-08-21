@@ -66,7 +66,7 @@ const ResetPassword = () => {
           <div className="flex flex-col">
             <input
               {...register("email")}
-              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1"
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1 placeholder-slate-500"
               placeholder="Digite seu email"
               type="email"
               id="email"
