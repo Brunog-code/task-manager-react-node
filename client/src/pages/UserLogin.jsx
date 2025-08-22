@@ -1,5 +1,7 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "../validations/loginSchema";
@@ -10,6 +12,7 @@ import { toast } from "react-toastify";
 const UserLogin = () => {
   //hooks
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   //navigate
   const navigateToReset = () => {
@@ -79,17 +82,25 @@ const UserLogin = () => {
             )}
           </div>
 
-          <div className="flex flex-col mt-5">
-            {/* <label className="font-semibold dark-blue-txt mb-1" htmlFor="senha">
-              Senha
-            </label> */}
+          <div className="flex flex-col mt-5 relative">
             <input
               className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200  p-2 placeholder-slate-500"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               {...register("password")}
               id="password"
               placeholder="Digite sua senha"
             />
+            {showPassword ? (
+              <AiOutlineEye
+                className="absolute right-3 top-3 cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            ) : (
+              <AiOutlineEyeInvisible
+                className="absolute right-3 top-3 cursor-pointer"
+                onClick={() => setShowPassword(!showPassword)}
+              />
+            )}
             {errors.password && (
               <p style={{ color: "red" }}>{errors.password.message}</p>
             )}
