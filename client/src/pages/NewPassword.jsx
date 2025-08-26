@@ -53,7 +53,7 @@ const NewPassword = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
             <input
-              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1 mb-2 placeholder-slate-500"
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1 placeholder-slate-500"
               placeholder="Digite sua senha"
               type="password"
               id="password"
@@ -66,7 +66,7 @@ const NewPassword = () => {
 
           <div className="flex flex-col">
             <input
-              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1 placeholder-slate-500"
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1 mt-2 placeholder-slate-500"
               placeholder="confirme sua senha"
               type="password"
               id="confirm-password"
