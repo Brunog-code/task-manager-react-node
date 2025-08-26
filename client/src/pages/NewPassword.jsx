@@ -43,7 +43,7 @@ const NewPassword = () => {
         <p className="text-yellow-400 text-3xl font-logo">To do list</p>
       </div>
 
-      <div className="flex flex-col w-full max-w-md bg-white border-2 h-auto p-4 rounded-lg">
+      <div className="flex flex-col w-[95%] max-w-md bg-white border-2 h-auto p-4 rounded-lg">
         <div className="flex justify-center">
           <h4 className="font-bold text-2xl dark-blue-txt mb-5">
             Digite a nova senha
@@ -53,7 +53,7 @@ const NewPassword = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
             <input
-              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1 placeholder-slate-500"
+              className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1 mb-2 placeholder-slate-500"
               placeholder="Digite sua senha"
               type="password"
               id="password"
@@ -65,7 +65,6 @@ const NewPassword = () => {
           </div>
 
           <div className="flex flex-col">
-
             <input
               className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1 placeholder-slate-500"
               placeholder="confirme sua senha"
