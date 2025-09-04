@@ -27,9 +27,9 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-around items-center p-2 fixed top-0 mb-5 bg-blue-500 w-full shadow-[inset_0_0_10px_rgba(0,0,0,0.8)]">
+    <div className="flex justify-between px-5 items-center p-2 fixed top-0 mb-5 bg-blue-500 w-full shadow-[inset_0_0_10px_rgba(0,0,0,0.8)]">
       <div>
-        <p className="text-yellow-400 text-3xl font-logo">To do list</p>
+        <p className="text-yellow-400 text-3xl font-logo">To-do list</p>
       </div>
 
       <div className="flex relative items-center">
@@ -40,7 +40,7 @@ const Header = () => {
           className="text-white cursor-pointer hover:text-gray-200 transition-colors"
         />
         {showDivExit && (
-          <div className="absolute top-9 right-0 lvory-bg rounded-lg shadow-lg w-20 text-center py-2 animate-fade-in hover:bg-yellow-300 hover:font-semibold hover:cursor-pointer transition-colors">
+          <div className="absolute top-9 right-3 lvory-bg rounded-lg shadow-lg w-20 text-center py-2 animate-fade-in hover:bg-yellow-300 hover:font-semibold hover:cursor-pointer transition-colors">
             <button onClick={handleLogout}>Sair</button>
           </div>
         )}

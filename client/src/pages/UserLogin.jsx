@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
@@ -41,7 +40,6 @@ const UserLogin = () => {
       );
 
       if (response.data.token) {
-        console.log(`Token: `, response.data.token);
         localStorage.setItem("token", response.data.token);
         navigate("/home");
       }
@@ -57,7 +55,7 @@ const UserLogin = () => {
   return (
     <div className="flex justify-center items-center w-full h-screen blue-degr-bg relative">
       <div className="absolute top-5 left-7">
-        <p className="text-yellow-400 text-3xl font-logo">To do list</p>
+        <p className="text-yellow-400 text-3xl font-logo">To-do list</p>
       </div>
 
       <div className="flex flex-col w-[95%] max-w-md bg-white border-2 h-auto p-4 rounded-lg">
@@ -67,9 +65,7 @@ const UserLogin = () => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
-            {/* <label className="font-semibold dark-blue-txt mb-1" htmlFor="email">
-              Email
-            </label> */}
+           
             <input
               className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-2 placeholder-slate-500"
               type="email"
@@ -85,7 +81,7 @@ const UserLogin = () => {
           <div className="flex flex-col mt-5 relative">
             <input
               className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200  p-2 placeholder-slate-500"
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               {...register("password")}
               id="password"
               placeholder="Digite sua senha"
