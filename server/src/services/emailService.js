@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 
+//instanciando o transpportes
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
@@ -19,12 +20,12 @@ const sendEmail = async (to, subject, html) => {
     html,
   };
 
- try{
-     return await transporter.sendMail(mailOptions);
- }catch(error) {
-     console.error("Erro ao enviar email:", error);
-     throw new Error("Erro ao enviar email");
-   }
+  try {
+    return await transporter.sendMail(mailOptions);
+  } catch (error) {
+    console.error("Erro ao enviar email:", error);
+    throw new Error("Erro ao enviar email");
+  }
 };
 
 module.exports = sendEmail;
