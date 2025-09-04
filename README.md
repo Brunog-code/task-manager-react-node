@@ -30,7 +30,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Aqui está uma prévia da home:
 
-![Screenshot do ToDoList](https://i.imgur.com/dO84cud.png)  
+![Screenshot do ToDoList](https://i.imgur.com/yE21hY8.png)  
 
 ---
 
