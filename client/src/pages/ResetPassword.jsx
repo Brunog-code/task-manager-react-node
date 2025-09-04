@@ -14,6 +14,8 @@ const ResetPassword = () => {
     navigate("/");
   };
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   //validar com zod
   const {
     register,
@@ -27,10 +29,7 @@ const ResetPassword = () => {
     console.log(`Campo Válido`, email);
 
     try {
-      const response = await axios.post(
-        `https://task-manager-react-node.onrender.com/password/forgot`,
-        email
-      );
+      const response = await axios.post(`${apiUrl}/password/forgot`, email);
 
       toast.success("Email de redefinição enviado com sucesso!");
       navigate("/");

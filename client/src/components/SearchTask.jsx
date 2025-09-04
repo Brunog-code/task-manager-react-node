@@ -1,6 +1,6 @@
 const SearchTask = ({ filter, setFilter }) => {
   return (
-    <div className="mb-5 bg-gradient-to-r from-[var(--dark-blue)] to-[var(--dark-real)]  p-2 rounded-lg mt-3">
+    <div className="mb-5 bg-gradient-to-r from-[var(--dark-blue)] to-blue-950/30  p-2 rounded-lg mt-3">
       <div>
         <h3 className=" mb-2 text-white text-xl">Filtrar</h3>
       </div>

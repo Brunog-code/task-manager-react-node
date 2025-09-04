@@ -11,6 +11,9 @@ const SignUp = () => {
   //hooks
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setshowConfirmPassword] = useState(false);
+
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const navigate = useNavigate();
 
   //exibir/esconder a senha
@@ -31,10 +34,7 @@ const SignUp = () => {
     console.log(`Dados válidos`, data);
 
     try {
-      const response = await axios.post(
-        "https://task-manager-react-node.onrender.com/user/cadUser",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/user/cadUser`, data);
 
       if (response.data.success) {
         toast.success(response.data.message);

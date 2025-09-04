@@ -21,10 +21,9 @@ const NewPassword = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(
-        `https://task-manager-react-node.onrender.com/password/reset/${token}`,
-        { newPassword: data.password }
-      );
+      const response = await axios.post(`${apiUrl}/password/reset/${token}`, {
+        newPassword: data.password,
+      });
 
       if (response.data.success) {
         toast.success(response.data.message);

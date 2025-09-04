@@ -10,18 +10,18 @@ const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("all");
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   //funcao para buscar as tarefas
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem("token"); // Obtém o token do localStorage
-      const response = await axios.get(
-        "https://task-manager-react-node.onrender.com/tasks",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`, // Adiciona o token de autenticação
-          },
-        }
-      );
+      const response = await axios.get(`${apiUrl}/tasks`, {
+        headers: {
+          Authorization: `Bearer ${token}`, // Adiciona o token de autenticação
+        },
+      });
+      console.log("API URL:", apiUrl);
       setTasks(response.data.tasks); // Atualiza o estado com as tarefas recebidas
       // console.log("Tarefas buscadas:", response.data.tasks);
     } catch (error) {
@@ -36,7 +36,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-b from-[var(--dark-real)] to-[var(--dark-blue)]  h-screen pb-2 pt-20 w-full overflow-y-auto">
+    <div className="bg-gradient-to-b from-[var(--dark-real)] to-blue-950  h-screen pb-2 pt-20 w-full overflow-y-auto">
       <Header />
       <div className="w-[90%] md:w-[70%] mx-auto ucla-blue-bg rounded-lg p-2 shadow-[inset_0_0_10px_rgba(0,0,0,0.3)]">
         <p className="text-center text-2xl mt-4 text-white font-bold">

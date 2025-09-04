@@ -1,4 +1,3 @@
-import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

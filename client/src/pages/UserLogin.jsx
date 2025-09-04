@@ -13,6 +13,8 @@ const UserLogin = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   //navigate
   const navigateToReset = () => {
     navigate("/ResetPassword");
@@ -34,10 +36,7 @@ const UserLogin = () => {
   //validando token e fazendo login
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(
-        "https://task-manager-react-node.onrender.com/auth/login",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/auth/login`, data);
 
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
@@ -65,7 +64,6 @@ const UserLogin = () => {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col">
-           
             <input
               className="rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-2 placeholder-slate-500"
               type="email"
