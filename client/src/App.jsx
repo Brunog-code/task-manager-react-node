@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ToastContainer} from 'react-toastify';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Home from "./pages/Home";
 import UserLogin from "./pages/UserLogin";
 import SignUp from "./pages/SignUp";
@@ -12,21 +12,21 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<UserLogin />} />
-        <Route 
-          path="/home" 
+        <Route
+          path="/home"
           element={
             <PrivateRoute>
               <Home />
             </PrivateRoute>
-          } 
+          }
         />
         <Route path="/resetpassword" element={<ResetPassword />} />
-         <Route path="/reset-password/:token" element={<NewPassword />} />
+        <Route path="/reset-password/:token" element={<NewPassword />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-      <ToastContainer/>
+      <ToastContainer />
     </BrowserRouter>
-
   );
 }
 
