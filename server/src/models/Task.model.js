@@ -6,6 +6,11 @@ const TaskSchema = new Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: false,
+    maxlength: 300,
+  },
   completed: {
     type: Boolean,
     default: false,
@@ -17,11 +22,11 @@ const TaskSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   finalizedAt: {
-    type: Date
-  }
+    type: Date,
+  },
 });
 
 const Task = mongoose.model("tasks", TaskSchema);

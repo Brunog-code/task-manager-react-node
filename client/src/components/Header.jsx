@@ -1,4 +1,5 @@
 import { FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
@@ -28,7 +29,7 @@ const Header = () => {
   return (
     <div className="flex justify-between px-5 items-center p-2 fixed top-0 mb-5 bg-blue-500 w-full shadow-[inset_0_0_10px_rgba(0,0,0,0.8)]">
       <div>
-        <p className="text-yellow-400 text-3xl font-logo">To-do list</p>
+        <Link to="/Home" className="text-yellow-400 text-3xl font-logo">To-do list</Link>
       </div>
 
       <div className="flex relative items-center">

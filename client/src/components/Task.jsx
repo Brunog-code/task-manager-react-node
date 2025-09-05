@@ -1,10 +1,12 @@
-import React from "react";
 import { FiTrash, FiCheck } from "react-icons/fi";
 import { FaEdit } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import clsx from "clsx";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { gsap } from "gsap";
 
 const Task = ({ task, setTasks }) => {
   const { title, createdAt, _id, completed, finalizedAt } = task;
@@ -13,27 +15,58 @@ const Task = ({ task, setTasks }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(title);
 
+  const taskRef = useRef(null);
+
   const apiUrl = import.meta.env.VITE_API_URL;
 
   //funcao para deletar a tarefa
   const handleDeleteTask = async () => {
     const token = localStorage.getItem("token"); // Obtém o token do localStorage
-    try {
-      const deleteTask = await axios.delete(`${apiUrl}/tasks/${_id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`, // Adiciona o token de autenticação
-        },
-      });
 
-      if (deleteTask.status === 200) {
-        toast.success(deleteTask.data.msg);
-        // Aqui você pode atualizar o estado da lista de tarefas, se necessário
-        setTasks((prevTasks) => prevTasks.filter((t) => t._id !== _id)); // Remove a tarefa deletada do estado
+    //altura da tela para o descer
+    const screenHeight = window.innerHeight;
+
+    //timeline
+    const tl = gsap.timeline({
+      onComplete: async () => {
+        deleteTaskFromAPI();
+      },
+    });
+
+    //só executa o delete quando finaliza animação
+    const deleteTaskFromAPI = async () => {
+      try {
+        const deleteTask = await axios.delete(`${apiUrl}/tasks/${_id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`, // Adiciona o token de autenticação
+          },
+        });
+
+        if (deleteTask.status === 200) {
+          toast.success(deleteTask.data.msg);
+          // Aqui você pode atualizar o estado da lista de tarefas, se necessário
+          setTasks((prevTasks) => prevTasks.filter((t) => t._id !== _id)); // Remove a tarefa deletada do estado
+        }
+      } catch (error) {
+        console.error("Erro ao deletar tarefa:", error);
+        toast.error("Erro ao deletar tarefa.");
       }
-    } catch (error) {
-      console.error("Erro ao deletar tarefa:", error);
-      toast.error("Erro ao deletar tarefa.");
-    }
+    };
+
+    //animacao
+    // animação: sobe
+    tl.to(taskRef.current, {
+      y: -150,
+      duration: 0.3,
+      ease: "power2.out",
+    });
+
+    // animação: desce para fora da tela
+    tl.to(taskRef.current, {
+      y: screenHeight,
+      duration: 0.5,
+      ease: "power2.in",
+    });
   };
 
   //funcao para atualizar o status da tarefa
@@ -109,7 +142,10 @@ const Task = ({ task, setTasks }) => {
   };
 
   return (
-    <div className="flex-1 w-full flex justify-between bg-[#1E1E1E] p-2 rounded-lg text-white mb-2 hover:bg-[#2A2A2A] transition-colors duration-200 cursor-pointer hover:scale-[1.007]">
+    <div
+      className="flex-1 w-full flex justify-between bg-[#1E1E1E] p-2 rounded-lg text-white mb-2 hover:bg-[#2A2A2A] transition-colors duration-200 hover:scale-[1.008]"
+      ref={taskRef}
+    >
       <div className="flex gap-2 items-center">
         <button
           onClick={handleToogleTask}
@@ -134,14 +170,15 @@ const Task = ({ task, setTasks }) => {
               maxLength={64}
             />
           ) : (
-            <p
-              className={clsx("text-2xl mb-1", {
+            <Link
+              to={`/details/${_id}`}
+              className={clsx("text-2xl mb-1 cursor-pointer select-none", {
                 "line-through text-gray-400": task.completed,
                 "text-white": !task.completed,
               })}
             >
               {title}
-            </p>
+            </Link>
           )}
           <p className="text-sm">
             <span className="text-green-500">Criada em:</span> {date}
@@ -173,12 +210,14 @@ const Task = ({ task, setTasks }) => {
             Salvar
           </button>
         )}
-        <button
-          onClick={handleDeleteTask}
-          className="bg-red-500 rounded-lg p-1 hover:bg-red-600"
-        >
-          <FiTrash size={20} />
-        </button>
+        {!isEditing && (
+          <button
+            onClick={handleDeleteTask}
+            className="bg-red-500 rounded-lg p-1 hover:bg-red-600"
+          >
+            <FiTrash size={20} />
+          </button>
+        )}
       </div>
     </div>
   );

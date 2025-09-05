@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import ResetPassword from "./pages/ResetPassword";
 import NewPassword from "./pages/NewPassword";
 import PrivateRoute from "./components/PrivateRoute";
+import Details from "./pages/Details";
 
 function App() {
   return (
@@ -23,6 +24,16 @@ function App() {
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/reset-password/:token" element={<NewPassword />} />
         <Route path="/signup" element={<SignUp />} />
+        {/* <Route
+          path="/details/:id"
+          element={
+            <PrivateRoute>
+              <Details />
+            </PrivateRoute>
+          }
+        /> */}
+        <Route path="/details/:id" element={<Details />} />
+
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <ToastContainer />

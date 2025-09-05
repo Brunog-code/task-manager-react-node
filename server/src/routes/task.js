@@ -29,6 +29,19 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const task = await TaskModel.findOne({ _id: id, user: req.user.id }) // busca as tarefas do usuário logado
+      .populate("user", "name") // popula o campo 'user' com o nome do usuário
+      .lean(); // converte o documento do Mongoose para um objeto JavaScript simples
+    res.status(200).json({ task }); // retorna as tarefas encontradas
+  } catch (error) {
+    console.error("Erro ao buscar a tarefa:", error);
+    res.status(500).json({ message: "Erro ao buscar a tarefa." });
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   try {
     const taskId = req.params.id;
@@ -46,9 +59,10 @@ router.delete("/:id", async (req, res) => {
 router.patch("/:id", async (req, res) => {
   try {
     const taskId = req.params.id;
-    const { completed, finalizedAt, title } = req.body; // espera receber o status de conclusão no corpo da requisição
+    const { description, completed, finalizedAt, title } = req.body;
 
     const updateData = {};
+    if (description !== undefined) updateData.description = description;
     if (completed !== undefined) updateData.completed = completed; // atualiza o status de conclusão
     if (finalizedAt !== undefined) updateData.finalizedAt = finalizedAt; // atualiza a data de finalização
     if (title !== undefined) updateData.title = title; // atualiza o título da tarefa

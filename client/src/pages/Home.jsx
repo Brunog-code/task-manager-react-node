@@ -21,7 +21,6 @@ const Home = () => {
           Authorization: `Bearer ${token}`, // Adiciona o token de autenticação
         },
       });
-      console.log("API URL:", apiUrl);
       setTasks(response.data.tasks); // Atualiza o estado com as tarefas recebidas
       // console.log("Tarefas buscadas:", response.data.tasks);
     } catch (error) {
@@ -44,6 +43,7 @@ const Home = () => {
         </p>
         <AddTask tasks={tasks} setTasks={setTasks} />
         <SearchTask filter={filter} setFilter={setFilter} />
+        <p className="text-white text-sm">Clique no titulo para ver detalhes</p>
         <Tasks filter={filter} tasks={tasks} setTasks={setTasks} />
       </div>
     </div>
