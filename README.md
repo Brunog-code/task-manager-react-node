@@ -34,7 +34,7 @@ Aqui está uma prévia da home:
 
 Clicando no titulo, abre a page de decrição da tarefa:
 
-![Screenshot do ToDoList]([https://i.imgur.com/x3Us6Jc.png](https://i.imgur.com/pHmRbch.png))  
+![Screenshot do ToDoList](https://i.imgur.com/pHmRbch.png)  
 
 
 ---
