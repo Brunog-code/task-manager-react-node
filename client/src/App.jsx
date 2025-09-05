@@ -24,15 +24,14 @@ function App() {
         <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/reset-password/:token" element={<NewPassword />} />
         <Route path="/signup" element={<SignUp />} />
-        {/* <Route
+        <Route
           path="/details/:id"
           element={
             <PrivateRoute>
               <Details />
             </PrivateRoute>
           }
-        /> */}
-        <Route path="/details/:id" element={<Details />} />
+        />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
