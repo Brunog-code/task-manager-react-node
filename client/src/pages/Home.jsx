@@ -43,7 +43,11 @@ const Home = () => {
         </p>
         <AddTask tasks={tasks} setTasks={setTasks} />
         <SearchTask filter={filter} setFilter={setFilter} />
-        <p className="text-white text-sm">Clique no titulo para ver detalhes</p>
+        {tasks.length > 0 && (
+          <p className="text-white text-sm">
+            Clique no titulo para ver detalhes
+          </p>
+        )}
         <Tasks filter={filter} tasks={tasks} setTasks={setTasks} />
       </div>
     </div>
