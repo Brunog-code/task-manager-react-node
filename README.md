@@ -30,7 +30,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Aqui está uma prévia da home:
 
-![Screenshot do ToDoList](https://i.imgur.com/yE21hY8.png)  
+![Screenshot do ToDoList](https://i.imgur.com/x3Us6Jc.png)  
+
+Clicando no titulo, abre a page de decrição da tarefa:
+
+![Screenshot do ToDoList]([https://i.imgur.com/x3Us6Jc.png](https://i.imgur.com/pHmRbch.png))  
+
 
 ---
 
