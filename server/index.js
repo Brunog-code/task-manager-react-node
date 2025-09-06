@@ -6,7 +6,7 @@ dotenv.config();
 const connectToDb = require("./src/database/connect");
 const authenticateToken = require("./src/middlewares/authenticateToken");
 
-// Importando as rotas
+//Importando as rotas
 const user = require("./src/routes/user");
 const task = require("./src/routes/task");
 const auth = require("./src/routes/auth");
@@ -27,7 +27,7 @@ app.use("/auth", auth);
 app.use("/password", password);
 
 //server
-const PORT = process.env.PORT || 5000; // 5000 só se não existir process.env.PORT
+const PORT = process.env.PORT || 5000; //5000 só se não existir process.env.PORT
 app.listen(PORT, () =>
   console.log(`Conectado com sucesso ao servidor na porta ${PORT}`)
 );
