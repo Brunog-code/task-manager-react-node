@@ -19,7 +19,7 @@ const AddTask = ({ tasks, setTasks }) => {
       return;
     }
 
-    const token = localStorage.getItem("token"); // Obtém o token do localStorage
+    const token = localStorage.getItem("token"); //Obtém o token do localStorage
 
     //requisição par o backend (passando a tarefa)
     try {
@@ -28,16 +28,16 @@ const AddTask = ({ tasks, setTasks }) => {
         { title: task },
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Adiciona o token de autenticação
+            Authorization: `Bearer ${token}`, 
           },
         }
       );
-      setTasks([response.data.task, ...tasks]); // Atualiza o estado com a nova tarefa
-      setTask(""); // Limpa o campo de entrada após adicionar a tarefa
+      setTasks([response.data.task, ...tasks]); //Atualiza o estado com a nova tarefa
+      setTask(""); //Limpa o campo de entrada após adicionar a tarefa
 
       toast.success("Tarefa adicionada com sucesso!");
       console.log("Tarefa adicionada:", response.data);
-      inputRef.current.focus(); // Foca novamente no campo de entrada após adicionar a tarefa
+      inputRef.current.focus(); //Foca novamente no campo de entrada após adicionar a tarefa
     } catch (error) {
       console.error("Erro ao adicionar tarefa:", error);
       toast.error("Erro ao adicionar tarefa.");
@@ -57,8 +57,8 @@ const AddTask = ({ tasks, setTasks }) => {
           maxLength={64}
           value={task}
           onChange={(e) => setTask(e.target.value)}
-          ref={inputRef} // Referência para o input
-          autoFocus // Foca automaticamente no campo de entrada ao carregar o componente
+          ref={inputRef} 
+          autoFocus 
         />
         <button
           className=" dark-blue-bg hover:bg-[#0a161f] text-white p-1 rounded-md"

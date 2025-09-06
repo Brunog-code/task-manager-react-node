@@ -128,7 +128,7 @@ const SignUp = () => {
               <input
                 {...register("confirmPassword")}
                 className="w-full rounded-md border-2 border-blue-500 focus:border-blue-800 focus:ring-2 focus:ring-blue-400 focus:outline-none transition-all duration-200 p-1 placeholder-slate-500"
-                placeholder="Digite sua senha"
+                placeholder="Confirme sua senha"
                 type={showConfirmPassword ? "text" : "password"}
                 id="confirm-password"
               />

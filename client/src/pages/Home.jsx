@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
+
 import AddTask from "../components/AddTask";
 import SearchTask from "../components/SearchTask";
 import Tasks from "../components/Tasks";
@@ -15,14 +16,13 @@ const Home = () => {
   //funcao para buscar as tarefas
   const fetchTasks = async () => {
     try {
-      const token = localStorage.getItem("token"); // Obtém o token do localStorage
+      const token = localStorage.getItem("token");
       const response = await axios.get(`${apiUrl}/tasks`, {
         headers: {
-          Authorization: `Bearer ${token}`, // Adiciona o token de autenticação
+          Authorization: `Bearer ${token}`,
         },
       });
-      setTasks(response.data.tasks); // Atualiza o estado com as tarefas recebidas
-      // console.log("Tarefas buscadas:", response.data.tasks);
+      setTasks(response.data.tasks); //Atualiza o estado com as tarefas recebidas
     } catch (error) {
       console.error("Erro ao buscar tarefas:", error);
       toast.error("Erro ao buscar tarefas.");
